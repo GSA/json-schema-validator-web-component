@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html style="background: darkblue;">
+<html style="background: lightblue;">
   <head>
-    <title>JSON Schema Web Component Demo</title>
+    <title>JSON Schema Validator Web Component Demo</title>
     <script src="./index.js"></script>
   </head>
   <body>
     <div>
-      <json-schema url="./example-schema.json" />
+      <json-schema-validator metaschema="./json-schema-draft-04.json" schema="./example-schema.json" />
     </div>
+    <script>
+      setTimeout(() => {
+        fetch("./example-data.json")
+        .then(response => response.text())
+        .then(text => {
+          const validator = document.querySelector("json-schema-validator");
+          const textarea = validator.querySelector("textarea")
+          textarea.innerHTML = text;
+          validator.validateInput();
+        })
+      }, 500)
+    </script>
   </body>
 </html>
