@@ -1,0 +1,27 @@
+{
+  "name": "@code.gov/json-schema-validator-web-component",
+  "version": "0.1.0",
+  "description": "Simple Web Component that Validates a JSON File",
+  "main": "index.js",
+  "scripts": {
+    "demo": "http-server",
+    "demo-on-server": "sudo PORT=80 http-server",
+    "update-example-schema": "wget https://raw.githubusercontent.com/GSA/code-gov-data/master/schemas/schema-2.0.0.json -O example-schema.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSA/json-schema-validator-web-component.git"
+  },
+  "keywords": [
+    "JSON",
+    "Schema",
+    "Web",
+    "Component"
+  ],
+  "author": "Daniel J. Dufour",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/GSA/json-schema-validator-web-component/issues"
+  },
+  "homepage": "https://github.com/GSA/json-schema-validator-web-component#readme"
+}

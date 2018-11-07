@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "agency": "Fake Name of Government Agency Here",
+  "measurementType" : {"method": "projects"},
+  "releases": [
+  {
+   "organization":"ABCD",
+   "name": "Demo Repository",
+   "repositoryURL": "https://thisisafakeurlforjsonschemavalidatorwebcomponenttest.com",
+   "description": "This is a rather short description of a repo that doesn't exist",
+   "tags": ["Longer Tag", "AB", "CD", "EFGH", "IJKLMNOP"],
+   "contact": {"email": "code@gsa.gov","name": "Demo Repository"},
+   "status": "Development",
+   "vcs": "git",
+   "languages": ["React", "CSS", "JavaScript"],
+   "permissions":
+   {
+    "licenses": [{
+        "URL": "https://thisisafakeurlforjsonschemavalidatorwebcomponenttest.com/LICENSE.md",
+        "name": "CC0"}],
+    "usageType": "openSource"
+   },
+   "relatedCode":[{
+    "name":"Name of a Related Code Repo",
+    "URL":"https://thisisafakeurltoarelatedcoderepo.com"
+   }],
+   "reusedCode":[{
+    "name":"This is some fake reused code",
+    "URL":"https://fakeurltoreusedcode.gov",
+    "isGovernmentRepo":true
+   },
+   {
+    "name":"Some more reused code example",
+    "URL":"https://anotherfakeurltoreusedcodeexample.gov"
+   }],
+  "laborHours": 0,
+  "date": {
+    "created": "2018-09-24",
+    "lastModified": "",
+    "metadataLastUpdated": ""
+  }
+
+  }]
+}
