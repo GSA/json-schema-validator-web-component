@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/GSA/json-schema-validator-web-component/issues"
   },
-  "homepage": "https://github.com/GSA/json-schema-validator-web-component#readme"
+  "homepage": "https://github.com/GSA/json-schema-validator-web-component#readme",
+  "dependencies": {
+    "jsoneditor": "^5.25.0"
+  }
 }

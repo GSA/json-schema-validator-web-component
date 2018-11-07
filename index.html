@@ -4,9 +4,9 @@
     <title>JSON Schema Validator Web Component Demo</title>
     <script src="./index.js"></script>
   </head>
-  <body style="margin: 0 auto; max-width: 900px; padding: 50px; width: 100%;">
+  <body style="box-sizing: border-box; margin: 0 auto; max-width: 900px; padding: 50px; width: 100%;">
     <div>
-      <json-schema-validator metaschema="./json-schema-draft-04.json" schema="./example-schema.json" />
+      <json-schema-validator jsoneditor="./node_modules/jsoneditor" metaschema="./json-schema-draft-04.json" schema="./example-schema.json" />
     </div>
     <script>
       setTimeout(() => {
@@ -14,11 +14,9 @@
         .then(response => response.text())
         .then(text => {
           const validator = document.querySelector("json-schema-validator");
-          const textarea = validator.querySelector("textarea")
-          textarea.innerHTML = text;
-          validator.validateInput();
+          validator.editor.setText(text)
         })
-      }, 500)
+      }, 1000)
     </script>
   </body>
 </html>
