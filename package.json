@@ -1,6 +1,6 @@
 {
   "name": "@code.gov/json-schema-validator-web-component",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple Web Component that Validates a JSON File",
   "main": "index.js",
   "scripts": {

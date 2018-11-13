@@ -9,13 +9,13 @@
     constructor() {
       // establish prototype chain
       super();
-      this.ajv_url = 'https://unpkg.com/ajv@6.5.5/dist/ajv.min.js'
-      this.json_editor_url = 'https://unpkg.com/jsoneditor@5.25.0';
+      this.default_ajv_url = 'https://unpkg.com/ajv@6.5.5/dist/ajv.min.js'
+      this.default_json_editor_url = 'https://unpkg.com/jsoneditor@5.25.0';
       this.promises = {};
     }
 
     static get observedAttributes() {
-      return ['jsoneditor', 'metaschema', 'schema'];
+      return ['ajv', 'jsoneditor', 'metaschema', 'schema'];
     }
 
     // fires after the element has been attached to the DOM
@@ -112,7 +112,8 @@
     }
 
     update() {
-      //this.ajvurl = this.getAttribute('ajv') || this.ajvurl
+      this.ajv_url = this.getAttribute('ajv') || this.default_ajv_url
+      this.json_editor_url = this.getAttribute('jsoneditor') || this.default_json_editor_url
       this.schemaurl = this.getAttribute('schema')
       this.metaschemaurl = this.getAttribute('metaschema')
       this.updated = Promise.all([
