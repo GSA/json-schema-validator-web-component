@@ -1,9 +1,10 @@
 {
   "name": "@code.gov/json-schema-validator-web-component",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Simple Web Component that Validates a JSON File",
   "main": "index.js",
   "scripts": {
+    "build": "./node_modules/.bin/babel src/index.js -o dist/json-schema-validator.js",
     "demo": "http-server",
     "demo-on-server": "sudo PORT=80 http-server",
     "update-example-schema": "wget https://raw.githubusercontent.com/GSA/code-gov-data/master/schemas/schema-2.0.0.json -O example-schema.json"
@@ -26,5 +27,14 @@
   "homepage": "https://github.com/GSA/json-schema-validator-web-component#readme",
   "dependencies": {
     "jsoneditor": "^5.25.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-transform-arrow-functions": "^7.0.0",
+    "@babel/plugin-transform-classes": "^7.1.0",
+    "@babel/plugin-transform-destructuring": "^7.1.3",
+    "@babel/plugin-transform-template-literals": "^7.0.0"
   }
 }

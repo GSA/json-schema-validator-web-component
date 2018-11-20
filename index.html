@@ -2,21 +2,37 @@
 <html>
   <head>
     <title>JSON Schema Validator Web Component Demo</title>
-    <script src="./index.js"></script>
+    <script src="polyfills/custom-elements.js"></script>
+    <script src="polyfills/babel-polyfill.js"></script>
+    <script src="dist/json-schema-validator.js"></script>
   </head>
   <body style="box-sizing: border-box; margin: 0 auto; max-width: 900px; padding: 50px; width: 100%;">
     <div>
-      <json-schema-validator jsoneditor="./node_modules/jsoneditor" metaschema="./json-schema-draft-04.json" schema="./example-schema.json" />
+      <json-schema-validator jsoneditor="./node_modules/jsoneditor" metaschema="./json-schema-draft-04.json" schema="./example-schema.json"></json-schema-validator>
     </div>
     <script>
-      setTimeout(() => {
-        fetch("./example-data.json")
-        .then(response => response.text())
-        .then(text => {
-          const validator = document.querySelector("json-schema-validator");
-          validator.editor.setText(text)
+
+      /*
+        I'd prefer to use fetch, but need to get demo to work on IE :-(
+      */
+      function getText(url, callback) {
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+            callback(xhr.response);
+          }
+        }
+
+        xhr.open('GET', url, true);
+        xhr.send('');
+      }
+
+      setTimeout(function(){
+        getText("./example-data.json", function(text) {
+          document.querySelector("json-schema-validator").editor.setText(text);
         })
-      }, 1000)
+      }, 1000);
     </script>
   </body>
 </html>
