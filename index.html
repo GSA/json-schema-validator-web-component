@@ -28,11 +28,18 @@
         xhr.send('');
       }
 
-      setTimeout(function(){
-        getText("./example-data.json", function(text) {
-          document.querySelector("json-schema-validator").editor.setText(text);
-        })
-      }, 1000);
+      getText("./example-data.json", function(text) {
+        var intervalID = setInterval(function(){
+          var validator = document.querySelector("json-schema-validator")
+          if (validator.editor) {
+            console.log("validator.editor exists");
+            validator.editor.setText(text);
+            console.log("set text");
+            clearInterval(intervalID);
+            console.log("cleared interval");
+          }
+        }, 1000);
+      });
     </script>
   </body>
 </html>
