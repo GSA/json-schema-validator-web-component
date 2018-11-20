@@ -8,7 +8,7 @@
   </head>
   <body style="box-sizing: border-box; margin: 0 auto; max-width: 900px; padding: 50px; width: 100%;">
     <div>
-      <json-schema-validator jsoneditor="./node_modules/jsoneditor" metaschema="./json-schema-draft-04.json" schema="./example-schema.json"></json-schema-validator>
+      <json-schema-validator jsoneditor="https://unpkg.com/jsoneditor@5.25.0" metaschema="./json-schema-draft-04.json" schema="./example-schema.json"></json-schema-validator>
     </div>
     <script>
 
@@ -28,11 +28,18 @@
         xhr.send('');
       }
 
-      setTimeout(function(){
-        getText("./example-data.json", function(text) {
-          document.querySelector("json-schema-validator").editor.setText(text);
-        })
-      }, 1000);
+      getText("./example-data.json", function(text) {
+        var intervalID = setInterval(function(){
+          var validator = document.querySelector("json-schema-validator");
+          if (validator.editor) {
+            console.log("validator.editor exists");
+            validator.editor.setText(text);
+            console.log("set text");
+            clearInterval(intervalID);
+            console.log("cleared interval");
+          }
+        }, 1000);
+      });
     </script>
   </body>
 </html>
